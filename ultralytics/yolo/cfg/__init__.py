@@ -84,6 +84,7 @@ def get_cfg(cfg: Union[str, Path, Dict, SimpleNamespace] = DEFAULT_CFG, override
 
     # Merge overrides
     if overrides:
+        del overrides['yaml_file']
         overrides = cfg2dict(overrides)
         check_cfg_mismatch(cfg, overrides)
         cfg = {**cfg, **overrides}  # merge cfg and overrides dicts (prefer overrides)
